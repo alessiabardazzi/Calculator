@@ -1,0 +1,102 @@
+import math
+
+def Basic (e,x,y):
+    if(e>4):
+        q=1
+        while (q==1):
+            e= int(input("the number you inserted doesn't stand for nothing, please reenter 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division "))
+            if(e<4):
+                q=2
+    if e==0:
+        k=float(x)+float(y)
+        return k
+    elif e==1:
+        k=float(x)-float(y)
+        return k
+    elif e==2:
+        k=float(x)*float(y)
+        return k
+    elif e==3:
+        if y==0:
+          print ("it is impossible to divide a number by 0")
+          quit()
+        else:
+           k=float(x)/float(y)
+           return k
+        return k
+    
+
+def Scientific(e):
+    if(e>7):
+        q=1
+        while (q==1):
+            e= int(input("the number you inserted doesn't stand for nothing, please reenter 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division, 4 for sqr,5 for power, 6 for sin, 7 for cos "))
+            if(e<8):
+                q=2
+    if(e<4):
+        x=input("press first number ")
+        y=input("press second number ")
+        i = Basic(z,x,y)
+        print(i)
+    elif e>3:
+        x=float(input("insert the number "))
+        if e==4:
+            i=math.sqrt(x)
+            print(i)
+        if e==5:
+            i=x**2
+            print(i)
+        if e==6:
+            i=math.sin(x)
+            print(i)
+        if e==7:
+            i=math.cos(x)
+            print(i)
+            
+def Advanced():
+    i=0
+    n=int(input("how many numbers do you want to deal with? "))
+    w=[1 for u in range(n)]
+    while i<n:
+        print('insert the ', i+1, 'number')
+        w[i]=int(input())
+        i=i+1
+       
+    i=0
+    while i<n-1:
+        print("which operation do you want to operate between ", i+1, " number and ", i+2, " number ? 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division")
+        z=int(input())
+        w[i+1]=Basic(z,w[i],w[i+1])
+        print (w[i+1])
+        i=i+1
+        
+  
+           
+print("which set of operation would you like to do ? b for basic, s for scientific and a for advanced")
+d=input()
+if(d!='b' and d!='s' and  d!='a'):
+        q=1
+        while (q==1):
+            d= input("the letter you inserted doesn't stand for nothing, please reenter b for basic, s for scientific and a for advanced ")
+            if(d=='b' or d=='s' or d=='a'):
+                q=2
+if d=='b':
+    z=int(input("which operation do you want to operate? 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division "))
+    c=int(input("please enter the first number "))
+    e=int(input("please enter the second number "))
+    i=Basic(z,c,e)
+    print(i)
+   
+elif d=='s':
+    z=int(input("which operation do you want to operate? 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division, 4 for sqr,5 for power, 6 for sin, 7 for cos "))
+    if(z>8):
+        q=1
+        while (q==1):
+            z= int(input("the number you inserted doesn't stand for nothing, please reenter 0 for sum, 1 for subtraction, 2 for multiplication, 3 for division, 4 for sqr,5 for power, 6 for sin, 7 for cos "))
+            if(z<8):
+                q=2
+    Scientific(z)
+elif d=='a':
+   Advanced()
+      
+    
